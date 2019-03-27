@@ -1,9 +1,9 @@
-package com.sandeep.apps.android.animalfacts.data.network;
+package com.sandeep.apps.android.animalfacts.facts.data.network;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class FactEntity {
+public class FactRestEntity {
 
     @SerializedName("_id")
     @Expose

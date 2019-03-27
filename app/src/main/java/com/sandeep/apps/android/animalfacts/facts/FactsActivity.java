@@ -1,4 +1,4 @@
-package com.sandeep.apps.android.animalfacts.presentation.view.activity;
+package com.sandeep.apps.android.animalfacts.facts;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,35 +6,33 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sandeep.apps.android.animalfacts.R;
-import com.sandeep.apps.android.animalfacts.domain.Fact;
-import com.sandeep.apps.android.animalfacts.presentation.presenter.FactsActivityPresenter;
-import com.sandeep.apps.android.animalfacts.presentation.presenter.FactsActivityPresenterImpl;
+import com.sandeep.apps.android.animalfacts.facts.domain.entity.FactEntity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class FactsActivity extends AppCompatActivity implements FactsActivityPresenter.View {
+public class FactsActivity extends AppCompatActivity implements FactsContract.View {
 
     @BindView(R.id.txt_fact)
     TextView txtFact;
 
     private Unbinder unbinder;
-    private FactsActivityPresenter mainActivityPresenter;
+    private FactsContract.Presenter mainActivityPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         unbinder = ButterKnife.bind(this);
-        mainActivityPresenter = new FactsActivityPresenterImpl();
+        mainActivityPresenter = new FactsActivityPresenter();
 
         mainActivityPresenter.fetchFacts(this);
     }
 
     @Override
-    public void onFactFetched(Fact fact) {
-        Toast.makeText(this, fact.getText(), Toast.LENGTH_LONG).show();
+    public void onFactFetched(FactEntity fact) {
+        ((TextView)findViewById(R.id.txt_fact)).setText(fact.getText());
     }
 
     @Override

@@ -1,21 +1,20 @@
-package com.sandeep.apps.android.animalfacts.domain;
+package com.sandeep.apps.android.animalfacts.facts.domain.entity;
 
-public class Fact {
+public class FactEntity {
 
     private String id;
-    private String updateAt;
+    private String updatedAt;
     private String createdAt;
-    private String userId;
-    private String fact;
-    private String type;
+    private String user;
     private String text;
     private int v;
     private boolean deleted;
+    private String type;
     private String source;
     private boolean used;
 
-    public Fact(String id) {
-        this.id = id;
+    public FactEntity(String id) {
+
     }
 
     public String getId() {
@@ -26,12 +25,12 @@ public class Fact {
         this.id = id;
     }
 
-    public String getUpdateAt() {
-        return updateAt;
+    public String getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateAt(String updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public String getCreatedAt() {
@@ -42,28 +41,12 @@ public class Fact {
         this.createdAt = createdAt;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getFact() {
-        return fact;
-    }
-
-    public void setFact(String fact) {
-        this.fact = fact;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getText() {
@@ -90,6 +73,14 @@ public class Fact {
         this.deleted = deleted;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public String getSource() {
         return source;
     }
@@ -104,5 +95,10 @@ public class Fact {
 
     public void setUsed(boolean used) {
         this.used = used;
+    }
+
+    @Override
+    public String toString() {
+        return ("id" + id) + "updatedAt" + updatedAt + "createdAt" + createdAt + "user" + user + "text" + text + "v" + v + "deleted" + deleted + "type" + type + "source" + source + "used" + used;
     }
 }

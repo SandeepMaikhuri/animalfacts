@@ -1,4 +1,4 @@
-package com.sandeep.apps.android.animalfacts.presentation.view;
+package com.sandeep.apps.android.animalfacts.common;
 
 public interface BaseView {
 

@@ -1,4 +1,4 @@
-package com.sandeep.apps.android.animalfacts.data.network;
+package com.sandeep.apps.android.animalfacts.facts.data.network;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ public class ApiFactory {
     private Map<String, Object> apiMap;
     private static final String baseUrl = "https://cat-fact.herokuapp.com";
 
-    ApiFactory() {
+    public ApiFactory() {
         apiMap = new HashMap<>();
         init();
     }
@@ -64,7 +64,7 @@ public class ApiFactory {
     }
 
     @SuppressWarnings("unchecked")
-    <T> T getApi(Class<T> apiClass) {
+    public <T> T getApi(Class<T> apiClass) {
         T api = (T) apiMap.get(apiClass.getName());
         if (api == null) {
             api = retrofit.create(apiClass);

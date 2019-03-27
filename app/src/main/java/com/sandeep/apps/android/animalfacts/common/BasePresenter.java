@@ -1,4 +1,4 @@
-package com.sandeep.apps.android.animalfacts.presentation.presenter;
+package com.sandeep.apps.android.animalfacts.common;
 
 public interface BasePresenter {
 
